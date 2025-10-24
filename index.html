@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteVirts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- === Главная секция === -->
+<section id="home">
+  <div class="glass">
+    <h1>ByteVirts</h1>
+    <p>Онлайн площадка покупки игровых ценностей</p>
+    <button onclick="scrollToSection('games')">Доступные игры</button>
+  </div>
+</section>
+
+<!-- === Игры секция === -->
+<section id="games">
+  <div class="glass">
+    <h2>BlackRussia</h2>
+    <p>Выберите нужный тип товаров</p>
+    <button onclick="scrollToSection('home')">⬆️ В начало</button>
+    <button onclick="scrollToSection('accounts')">Аккаунты</button>
+  </div>
+</section>
+
+<!-- === Аккаунты секция === -->
+<section id="accounts">
+  <div class="glass">
+    <h2>Аккаунты</h2>
+    <p>Здесь будут доступные аккаунты для покупки</p>
+    <button onclick="scrollToSection('home')">⬆️ В начало</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
