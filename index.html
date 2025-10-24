@@ -8,23 +8,32 @@
 </head>
 <body>
 
-<h1>ByteVirts</h1>
-<p>Онлайн площадка покупки игровых ценностей</p>
+<div class="container">
+    <!-- Заголовок -->
+    <h1>ByteVirts</h1>
+    <p>Онлайн площадка покупки игровых ценностей</p>
 
-<div class="game-list">
-    <div class="game-card" id="blackrussia">BlackRussia</div>
+    <!-- Список игр -->
+    <div class="game-list">
+        <button id="blackrussia"><span>BlackRussia</span></button>
+    </div>
+
+    <!-- Меню выбора -->
+    <div id="menu" class="hidden">
+        <button id="accountsBtn"><span>Аккаунты</span></button>
+        <button id="itemsBtn"><span>Игровые ценности</span></button>
+        <div id="products" class="gallery hidden"></div>
+    </div>
+
+    <!-- Уведомление -->
+    <div id="notification" class="hidden">Не доступно...</div>
 </div>
 
-<div class="menu" id="menu">
-    <button id="accountsBtn">Аккаунты</button>
-    <button id="itemsBtn">Игровые ценности</button>
-    <div id="products" style="display:none;"></div>
-</div>
-
-<div class="notification" id="notification">Не доступно...</div>
-
+<!-- Звук ошибки -->
 <audio id="errorSound" src="error.mp3"></audio>
 
+<!-- Подключение JS -->
 <script src="script.js"></script>
+
 </body>
 </html>
