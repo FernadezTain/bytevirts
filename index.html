@@ -7,37 +7,30 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- === Главный экран === -->
-<section id="home" class="section full-screen">
-  <div class="glass center">
+  <div class="container">
     <h1>ByteVirts</h1>
     <p>Онлайн площадка покупки игровых ценностей</p>
-  </div>
-  <p class="scroll-hint">Прокрутите вниз, чтобы увидеть игры ↓</p>
-</section>
 
-<!-- === Секция игр === -->
-<section id="games" class="section dark-section">
-  <h2 class="games-title">Список игр</h2>
-  <div class="games-list">
-    <button class="game-btn" onclick="showGame('blackrussia')">BlackRussia</button>
-    <!-- Можно добавить другие игры -->
-  </div>
-</section>
-
-<!-- === Страница игры === -->
-<section id="game-page" class="section">
-  <div class="game-content">
-    <h1>BlackRussia</h1>
-    <div class="left-buttons">
-      <button onclick="backToGames()">⬅️ Назад к списку игр</button>
-      <button>Аккаунты</button>
-      <button>Игровые ценности</button>
+    <div class="game-list">
+      <div class="game-card" id="blackrussia">
+        BlackRussia
+      </div>
     </div>
   </div>
-</section>
 
-<script src="script.js"></script>
+  <div class="menu" id="menu">
+    <h2>BlackRussia</h2>
+    <p>Описание игры и внутриигровых предметов...</p>
+    <button>Купить</button>
+  </div>
+
+<script>
+const menu = document.getElementById('menu');
+const gameCard = document.getElementById('blackrussia');
+
+gameCard.addEventListener('click', () => {
+  menu.style.display = 'block';
+});
+</script>
 </body>
 </html>
