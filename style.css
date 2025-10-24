@@ -1,19 +1,17 @@
-/* --- Сброс стилей --- */
+/* Сброс стилей */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
   height: 100%;
-  width: 100%;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* --- Фон с переливом --- */
+/* Фон с анимацией градиента */
 body {
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
   background-size: 800% 800%;
@@ -26,20 +24,25 @@ body {
   100% {background-position: 0% 50%;}
 }
 
-/* --- Секции --- */
-section {
+/* Общие стили секций */
+.section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
   padding: 2rem;
+  text-align: center;
 }
 
-/* --- Glassmorphism контейнер --- */
+/* Fullscreen секция */
+.full-screen {
+  height: 100vh;
+}
+
+/* Glassmorphism контейнер */
 .glass {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.3);
@@ -47,9 +50,15 @@ section {
   max-width: 600px;
 }
 
-/* --- Заголовки с градиентным текстом --- */
+/* Центрирование для первой секции */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Заголовки с градиентным текстом */
 h1, h2 {
-  font-size: 2.5rem;
   font-weight: bold;
   background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80, #facc15);
   background-size: 400% 400%;
@@ -59,9 +68,8 @@ h1, h2 {
   margin-bottom: 1rem;
 }
 
-h2 {
-  font-size: 2rem;
-}
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
 
 @keyframes gradientText {
   0% {background-position: 0% 50%;}
@@ -90,4 +98,11 @@ button {
 
 button:hover {
   background: rgba(255,255,255,0.4);
+}
+
+/* Подсказка скролла */
+.scroll-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 1rem;
 }
