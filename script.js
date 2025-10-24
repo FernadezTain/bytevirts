@@ -1,3 +1,4 @@
+// Элементы DOM
 const blackrussia = document.getElementById('blackrussia');
 const menu = document.getElementById('menu');
 const accountsBtn = document.getElementById('accountsBtn');
@@ -15,21 +16,25 @@ const productList = [
     {name: 'Аккаунт 3', desc: 'Готов к PvP', img: 'images/account3.png'}
 ];
 
-// Открытие меню при клике на игру
+// Клик по игре BlackRussia → показать меню
 blackrussia.addEventListener('click', () => {
     menu.classList.remove('hidden');
     products.classList.add('hidden');
 });
 
-// Игровые ценности → уведомление
+// Клик по "Игровые ценности" → уведомление с ошибкой
 itemsBtn.addEventListener('click', () => {
     clearTimeout(notificationTimeout);
     notification.classList.add('show');
     errorSound.play();
-    notificationTimeout = setTimeout(() => notification.classList.remove('show'), 3000);
+
+    // Скрыть уведомление через 3 секунды
+    notificationTimeout = setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
 });
 
-// Аккаунты → показываем товары
+// Клик по "Аккаунты" → показать товары
 accountsBtn.addEventListener('click', () => {
     products.innerHTML = '';
     products.classList.remove('hidden');
