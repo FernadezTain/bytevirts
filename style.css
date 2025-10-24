@@ -1,134 +1,38 @@
-/* === Сброс === */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth;}
-html, body {height: 100%;}
-
-/* === Фон с переливом === */
 body {
-  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
-  background-size: 800% 800%;
-  animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-/* === Общие секции === */
-.section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; transition: all 0.5s ease;}
-.full-screen {height: 100vh;}
-
-/* === Glassmorphism блок === */
-.glass {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 3rem 4rem;
-  max-width: 600px;
-}
-
-/* === Заголовки с градиентным текстом === */
-h1, h2 {
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80, #facc15);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 10s ease infinite;
-  margin-bottom: 1rem;
-}
-
-h1 { font-size: 3rem; }
-h2 { font-size: 2rem; }
-
-@keyframes gradientText {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-/* Подсказка прокрутки */
-.scroll-hint {
-  position: absolute;
-  bottom: 20px;
-  font-size: 0.9rem;
-  color: white;
-  opacity: 0.8;
-}
-
-/* === Секция с темным фоном === */
-.dark-section {
+  font-family: 'Segoe UI', sans-serif;
   background: #121212;
   color: white;
-  width: 100%;
-  padding: 4rem 2rem;
-  align-items: flex-start;
-}
-
-/* Заголовок списка игр вверху */
-.games-title {
-  align-self: center;
-  margin-bottom: 2rem;
-}
-
-/* Список игр слева */
-.games-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  padding: 50px;
 }
 
-.game-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin-bottom: 1rem;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
+.game-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
-.game-btn:hover {
-  background: rgba(255,255,255,0.3);
+.game-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* === Страница игры === */
-#game-page {
-  display: none; /* скрыта по умолчанию */
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 4rem 2rem;
-  min-height: 100vh;
-  background: #121212;
-  color: white;
-}
-
-#game-page h1 { margin-bottom: 2rem; margin-left: 50%; transform: translateX(-50%); }
-
-.left-buttons {
-  margin-left: 50px;
-}
-
-.left-buttons button {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 0.8rem 2rem;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.left-buttons button:hover {
-  background: rgba(255,255,255,0.3);
+.menu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px) saturate(180%);
 }
