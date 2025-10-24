@@ -1,20 +1,20 @@
 const backgrounds = [
   // Бесплатные фоны
-  { file: "profile_def.png", name: "Стандартный фон", arg: "def", category: ["standard", "free"] },
-  { file: "profile_creeper_Minecraft.png", name: "Крипер Minecraft", arg: "minecraft1", category: ["standard", "free"] },
-  { file: "profile_banan.png", name: "Бананчики", arg: "banan", category: ["standard", "free"] },
-  { file: "profile_weather.png", name: "Облачка", arg: "weather", category: ["standard", "free"] },
-  { file: "IIIUHA3A_1.png", name: "IIIUHA3A - 1", arg: "IIIUHA3A_1", category: ["custom", "nature", "free"] },
-  { file: "Danivak50_1.png", name: "Danivak50 - 1", arg: "Danivak50_1", category: ["custom", "free"] },
-  { file: "Danivak50_2.png", name: "Danivak50 - 2", arg: "Danivak50_2", category: ["custom", "animals", "free"] },
-  { file: "Danivak50_3.png", name: "Danivak50 - 3", arg: "Danivak50_3", category: ["custom", "animals", "free"] },
-  { file: "Danivak50_4.png", name: "Danivak50 - 4", arg: "Danivak50_4", category: ["custom", "animals", "free"] },
-  { file: "Danivak50_5.png", name: "Danivak50 - 5", arg: "Danivak50_5", category: ["custom", "animals", "free"] },
-  { file: "profile_anime1.png", name: "Светлая мечта", arg: "profile_anime1", category: ["standard", "anime", "free"] },
-  { file: "profile_anime2.png", name: "В обьятиях неба", arg: "profile_anime2", category: ["standard", "anime", "free"] },
-  { file: "profile_wiongoffical_1.png", name: "wiongoffical - 1", arg: "wiongoffical_1", category: ["custom", "architecture", "free"] },
+  { file: "profile_def.png", name: "Стандартный фон", arg: "def", category: ["standard", "free"], servers: ["all"] },
+  { file: "profile_creeper_Minecraft.png", name: "Крипер Minecraft", arg: "minecraft1", category: ["standard", "free"], servers: ["RED", "GREEN", "BLUE"] },
+  { file: "profile_banan.png", name: "Бананчики", arg: "banan", category: ["standard", "free"], servers: ["YELLOW", "ORANGE", "PURPLE"] },
+  { file: "profile_weather.png", name: "Облачка", arg: "weather", category: ["standard", "free"], servers: ["all"] },
+  { file: "IIIUHA3A_1.png", name: "IIIUHA3A - 1", arg: "IIIUHA3A_1", category: ["custom", "nature", "free"], servers: ["all"] },
+  { file: "Danivak50_1.png", name: "Danivak50 - 1", arg: "Danivak50_1", category: ["custom", "free"], servers: ["RED", "GREEN"] },
+  { file: "Danivak50_2.png", name: "Danivak50 - 2", arg: "Danivak50_2", category: ["custom", "animals", "free"], servers: ["BLUE", "YELLOW"] },
+  { file: "Danivak50_3.png", name: "Danivak50 - 3", arg: "Danivak50_3", category: ["custom", "animals", "free"], servers: ["all"] },
+  { file: "Danivak50_4.png", name: "Danivak50 - 4", arg: "Danivak50_4", category: ["custom", "animals", "free"], servers: ["all"] },
+  { file: "Danivak50_5.png", name: "Danivak50 - 5", arg: "Danivak50_5", category: ["custom", "animals", "free"], servers: ["all"] },
+  { file: "profile_anime1.png", name: "Светлая мечта", arg: "profile_anime1", category: ["standard", "anime", "free"], servers: ["all"] },
+  { file: "profile_anime2.png", name: "В обьятиях неба", arg: "profile_anime2", category: ["standard", "anime", "free"], servers: ["all"] },
+  { file: "profile_wiongoffical_1.png", name: "wiongoffical - 1", arg: "wiongoffical_1", category: ["custom", "architecture", "free"], servers: ["all"] },
   // Платные фоны
-  { file: "lizka_1.png", name: "Lizka", arg: "lizka_1", price: 17000, category: ["standard", "paid"] },
+  { file: "lizka_1.png", name: "Lizka", arg: "lizka_1", price: 17000, category: ["standard", "paid"], servers: ["all"] },
 ];
 
 const openBtn = document.getElementById("openBtn");
@@ -38,13 +38,16 @@ const serverList = document.getElementById("serverList");
 
 let selectedArg = "";
 let currentCategory = "all";
+let selectedServer = "all";
 
 // --- Галерея ---
 function renderGallery() {
   gallery.innerHTML = "";
   const searchText = searchInput.value.toLowerCase().trim();
+
   const filtered = backgrounds.filter(bg =>
     (currentCategory === "all" || bg.category.includes(currentCategory)) &&
+    (selectedServer === "all" || (bg.servers && bg.servers.includes(selectedServer))) &&
     bg.name.toLowerCase().includes(searchText)
   );
 
@@ -129,26 +132,22 @@ backBtn.addEventListener("click", () => {
 filterBtn.addEventListener("click", () => filterOptions.classList.toggle("show"));
 document.querySelectorAll(".filter-option").forEach(btn => {
   btn.addEventListener("click", () => {
-    if(btn.id !== "serverBtn") { // обычные категории
-      currentCategory = btn.dataset.category;
-      filterOptions.classList.remove("show");
-      renderGallery();
-    }
+    currentCategory = btn.dataset.category;
+    filterOptions.classList.remove("show");
+    renderGallery();
   });
 });
 
-// --- Меню серверов ---
+// --- Работа с серверами ---
 serverBtn.addEventListener("click", () => {
-  serverList.classList.toggle("show");
+  serverList.classList.toggle("hidden");
 });
 
 document.querySelectorAll(".server-option").forEach(btn => {
   btn.addEventListener("click", () => {
-    const server = btn.dataset.server;
-    currentCategory = server;
+    selectedServer = btn.dataset.server;
+    serverList.classList.add("hidden");
     renderGallery();
-    filterOptions.classList.remove("show");
-    serverList.classList.remove("show");
   });
 });
 
