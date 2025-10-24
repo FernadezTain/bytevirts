@@ -8,25 +8,116 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="title">Fernie+ настройка подписки</h1>
-        <button id="openBtn">Настроить фон профиля</button>
+        <h1 id="title">ByteVirts</h1>
+        <button id="openBtn">BlackRussia</button>
 
         <!-- 🔽 Кнопка фильтра -->
-        <div class="filter-container hidden" id="filterContainer">
-            <button id="filterBtn">Фильтр</button>
-            <div id="filterOptions" class="hidden">
-                <input type="text" id="searchInput" placeholder="Поиск фонов..." />
-                <button class="filter-option" data-category="all">Все</button>
-                <button class="filter-option" data-category="standard">Стандартные</button>
-                <button class="filter-option" data-category="custom">Пользовательские</button>
-                <button class="filter-option" data-category="anime">Аниме</button>
-                <button class="filter-option" data-category="animals">Животные</button>
-                <button class="filter-option" data-category="nature">Природа</button>
-                <button class="filter-option" data-category="architecture">Архитектура</button>
-                <button class="filter-option" data-category="free">Бесплатные</button>
-                <button class="filter-option" data-category="paid">Платные</button>
-            </div>
+<div class="filter-container hidden" id="filterContainer">
+    <button id="filterBtn">Фильтр</button>
+    <div id="filterOptions" class="hidden">
+        <input type="text" id="searchInput" placeholder="Поиск фонов..." />
+        <button class="filter-option" data-category="all">Все</button>
+        <button class="filter-option" data-category="accounts_blackrussia">Аккаунты</button>
+        <button class="filter-option" data-category="game_cenost_blackrussia">Игровые ценности</button>
+
+        <!-- Кнопка Сервера -->
+        <button id="serverBtn" class="filter-option">Сервера</button>
+
+        <!-- Список серверов (скрыт по умолчанию) -->
+        <div id="serverList" class="hidden">
+<button class="server-option" data-server="RED">RED</button>
+<button class="server-option" data-server="GREEN">GREEN</button>
+<button class="server-option" data-server="BLUE">BLUE</button>
+<button class="server-option" data-server="YELLOW">YELLOW</button>
+<button class="server-option" data-server="ORANGE">ORANGE</button>
+<button class="server-option" data-server="PURPLE">PURPLE</button>
+<button class="server-option" data-server="LIME">LIME</button>
+<button class="server-option" data-server="PINK">PINK</button>
+<button class="server-option" data-server="CHERRY">CHERRY</button>
+<button class="server-option" data-server="BLACK">BLACK</button>
+<button class="server-option" data-server="INDIGO">INDIGO</button>
+<button class="server-option" data-server="WHITE">WHITE</button>
+<button class="server-option" data-server="MAGENTA">MAGENTA</button>
+<button class="server-option" data-server="CRIMSON">CRIMSON</button>
+<button class="server-option" data-server="GOLD">GOLD</button>
+<button class="server-option" data-server="AZURE">AZURE</button>
+<button class="server-option" data-server="PLATINUM">PLATINUM</button>
+<button class="server-option" data-server="AQUA">AQUA</button>
+<button class="server-option" data-server="GRAY">GRAY</button>
+<button class="server-option" data-server="ICE">ICE</button>
+<button class="server-option" data-server="CHILLI">CHILLI</button>
+<button class="server-option" data-server="CHOCO">CHOCO</button>
+<button class="server-option" data-server="MOSCOW">MOSCOW</button>
+<button class="server-option" data-server="SPB">SPB</button>
+<button class="server-option" data-server="UFA">UFA</button>
+<button class="server-option" data-server="SOCHI">SOCHI</button>
+<button class="server-option" data-server="KAZAN">KAZAN</button>
+<button class="server-option" data-server="SAMARA">SAMARA</button>
+<button class="server-option" data-server="ROSTOV">ROSTOV</button>
+<button class="server-option" data-server="ANAPA">ANAPA</button>
+<button class="server-option" data-server="EKB">EKB</button>
+<button class="server-option" data-server="KRASNODAR">KRASNODAR</button>
+<button class="server-option" data-server="ARZAMAS">ARZAMAS</button>
+<button class="server-option" data-server="NOVOSIBIRSK">NOVOSIBIRSK</button>
+<button class="server-option" data-server="GROZNY">GROZNY</button>
+<button class="server-option" data-server="SARATOV">SARATOV</button>
+<button class="server-option" data-server="OMSK">OMSK</button>
+<button class="server-option" data-server="IRKUTSK">IRKUTSK</button>
+<button class="server-option" data-server="VOLGOGRAD">VOLGOGRAD</button>
+<button class="server-option" data-server="VORONEZH">VORONEZH</button>
+<button class="server-option" data-server="BELGOROD">BELGOROD</button>
+<button class="server-option" data-server="MAKHACHKALA">MAKHACHKALA</button>
+<button class="server-option" data-server="VLADIKAVKAZ">VLADIKAVKAZ</button>
+<button class="server-option" data-server="VLADIVOSTOK">VLADIVOSTOK</button>
+<button class="server-option" data-server="KALININGRAD">KALININGRAD</button>
+<button class="server-option" data-server="CHELYABINSK">CHELYABINSK</button>
+<button class="server-option" data-server="KRASNOYARSK">KRASNOYARSK</button>
+<button class="server-option" data-server="CHEBOKSARY">CHEBOKSARY</button>
+<button class="server-option" data-server="KHABAROVSK">KHABAROVSK</button>
+<button class="server-option" data-server="PERM">PERM</button>
+<button class="server-option" data-server="TULA">TULA</button>
+<button class="server-option" data-server="RYAZAN">RYAZAN</button>
+<button class="server-option" data-server="MURMANSK">MURMANSK</button>
+<button class="server-option" data-server="PENZA">PENZA</button>
+<button class="server-option" data-server="KURSK">KURSK</button>
+<button class="server-option" data-server="ARKHANGELSK">ARKHANGELSK</button>
+<button class="server-option" data-server="ORENBURG">ORENBURG</button>
+<button class="server-option" data-server="KIROV">KIROV</button>
+<button class="server-option" data-server="KEMEROVO">KEMEROVO</button>
+<button class="server-option" data-server="TYUMEN">TYUMEN</button>
+<button class="server-option" data-server="TOLYATTI">TOLYATTI</button>
+<button class="server-option" data-server="IVANOVO">IVANOVO</button>
+<button class="server-option" data-server="STAVROPOL">STAVROPOL</button>
+<button class="server-option" data-server="SMOLENSK">SMOLENSK</button>
+<button class="server-option" data-server="PSKOV">PSKOV</button>
+<button class="server-option" data-server="BRYANSK">BRYANSK</button>
+<button class="server-option" data-server="OREL">OREL</button>
+<button class="server-option" data-server="YAROSLAVL">YAROSLAVL</button>
+<button class="server-option" data-server="BARNAUL">BARNAUL</button>
+<button class="server-option" data-server="LIPETSK">LIPETSK</button>
+<button class="server-option" data-server="ULYANOVSK">ULYANOVSK</button>
+<button class="server-option" data-server="YAKUTSK">YAKUTSK</button>
+<button class="server-option" data-server="TAMBOV">TAMBOV</button>
+<button class="server-option" data-server="BRATSK">BRATSK</button>
+<button class="server-option" data-server="ASTRAKHAN">ASTRAKHAN</button>
+<button class="server-option" data-server="CHITA">CHITA</button>
+<button class="server-option" data-server="KOSTROMA">KOSTROMA</button>
+<button class="server-option" data-server="VLADIMIR">VLADIMIR</button>
+<button class="server-option" data-server="KALUGA">KALUGA</button>
+<button class="server-option" data-server="NOVGOROD">NOVGOROD</button>
+<button class="server-option" data-server="TAGANROG">TAGANROG</button>
+<button class="server-option" data-server="VOLOGDA">VOLOGDA</button>
+<button class="server-option" data-server="TVER">TVER</button>
+<button class="server-option" data-server="TOMSK">TOMSK</button>
+<button class="server-option" data-server="IZHEVSK">IZHEVSK</button>
+<button class="server-option" data-server="SURGUT">SURGUT</button>
+<button class="server-option" data-server="PODOLSK">PODOLSK</button>
+<button class="server-option" data-server="MAGADAN">MAGADAN</button>
+<button class="server-option" data-server="CHEREPOVETS">CHEREPOVETS</button>
         </div>
+    </div>
+</div>
+
 
         <div class="gallery hidden" id="gallery"></div>
         <button id="backBtn" class="hidden">Назад</button>
