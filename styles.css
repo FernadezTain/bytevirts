@@ -577,12 +577,42 @@ footer a {
   gap: 5px;          /* расстояние между кнопками */
 }
 
+/* Скрываем скролл по умолчанию */
 #serverList {
-  max-height: 300px; /* ограничение высоты для списка серверов */
-  overflow-y: auto;  /* вертикальная прокрутка */
+  max-height: 300px;
+  overflow-y: auto;
   margin-top: 5px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
+  
+  /* Скрыть скролл, пока список скрыт */
+  scrollbar-width: thin;        /* для Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
+}
+
+/* Кастомный скролл для вебкитов */
+#serverList.show::-webkit-scrollbar {
+  width: 8px;
+}
+
+#serverList.show::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+#serverList.show::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+#serverList.show::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Скрываем скролл, когда список скрыт */
+#serverList:not(.show) {
+  overflow: hidden;
 }
 
