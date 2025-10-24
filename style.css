@@ -65,9 +65,17 @@ button:hover {
     margin-top: 20px;
 }
 
-#menu button {
-    width: 60%;
-    padding: 12px 20px;
+.menu-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.menu-buttons button {
+    width: 150px; /* компактно */
+    padding: 10px 15px;
+    font-size: 14px;
 }
 
 /* Список товаров */
@@ -87,12 +95,11 @@ button:hover {
     border-radius: 12px;
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(12px) saturate(180%);
-    transition: all 0.3s ease;
 }
 
 .product img {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     border-radius: 12px;
     object-fit: cover;
 }
@@ -111,7 +118,7 @@ button:hover {
 }
 
 .product button {
-    font-size: 10px;
+    font-size: 10px; /* маленькая кнопка справа */
     padding: 4px 6px;
     border-radius: 6px;
     background: rgba(255,255,255,0.2);
