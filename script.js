@@ -1,46 +1,45 @@
-const menu = document.getElementById('menu');
 const blackrussia = document.getElementById('blackrussia');
+const menu = document.getElementById('menu');
 const accountsBtn = document.getElementById('accountsBtn');
 const itemsBtn = document.getElementById('itemsBtn');
+const products = document.getElementById('products');
 const notification = document.getElementById('notification');
 const errorSound = document.getElementById('errorSound');
-const products = document.getElementById('products');
 
 let notificationTimeout;
 
+// Список аккаунтов
 const productList = [
-    {name: 'Аккаунт 1', desc: 'Краткое описание 1', img: 'images/account1.png'},
-    {name: 'Аккаунт 2', desc: 'Краткое описание 2', img: 'images/account2.png'},
-    {name: 'Аккаунт 3', desc: 'Краткое описание 3', img: 'images/account3.png'}
+    {name: 'Аккаунт 1', desc: 'Редкий аккаунт с бонусами', img: 'images/account1.png'},
+    {name: 'Аккаунт 2', desc: 'Уровень 50, скин пак', img: 'images/account2.png'},
+    {name: 'Аккаунт 3', desc: 'Готов к PvP', img: 'images/account3.png'}
 ];
 
+// Открытие меню при клике на игру
 blackrussia.addEventListener('click', () => {
-    menu.style.display = 'block';
-    menu.classList.remove('expanded');
-    products.style.display = 'none';
+    menu.classList.remove('hidden');
+    products.classList.add('hidden');
 });
 
+// Игровые ценности → уведомление
 itemsBtn.addEventListener('click', () => {
     clearTimeout(notificationTimeout);
-    notification.style.display = 'block';
-    notification.style.opacity = '1';
+    notification.classList.add('show');
     errorSound.play();
-    notificationTimeout = setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => { notification.style.display = 'none'; }, 300);
-    }, 3000);
+    notificationTimeout = setTimeout(() => notification.classList.remove('show'), 3000);
 });
 
+// Аккаунты → показываем товары
 accountsBtn.addEventListener('click', () => {
-    menu.classList.add('expanded');
-    products.style.display = 'block';
     products.innerHTML = '';
+    products.classList.remove('hidden');
+
     productList.forEach(p => {
         const div = document.createElement('div');
         div.className = 'product';
         div.innerHTML = `
             <img src="${p.img}" alt="${p.name}">
-            <div>
+            <div class="product-info">
                 <strong>${p.name}</strong>
                 <p>${p.desc}</p>
             </div>
