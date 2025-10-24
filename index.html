@@ -8,30 +8,29 @@
 </head>
 <body>
 
-<!-- === Главная секция === -->
+<!-- === Первый экран === -->
 <section id="home" class="section full-screen">
   <div class="glass center">
     <h1>ByteVirts</h1>
     <p>Онлайн площадка покупки игровых ценностей</p>
-    <p class="scroll-hint">Прокрутите вниз, чтобы увидеть игры ↓</p>
   </div>
+  <p class="scroll-hint">Прокрутите вниз, чтобы увидеть игры ↓</p>
 </section>
 
 <!-- === Секция игр === -->
-<section id="games" class="section">
-  <div class="glass">
-    <h2>Доступные игры</h2>
-    <button onclick="showGame('blackrussia')">BlackRussia</button>
+<section id="games" class="section dark-section">
+  <h2>Список игр</h2>
+  <div class="games-list">
+    <button class="game-btn" onclick="showGame('blackrussia')">BlackRussia</button>
   </div>
 </section>
 
-<!-- === Секция BlackRussia === -->
-<section id="blackrussia" class="section">
-  <div class="glass">
-    <h2>BlackRussia</h2>
-    <p>Выберите нужный тип товаров</p>
-    <button onclick="scrollToSection('home')">⬆️ В начало</button>
+<!-- === Страница игры === -->
+<section id="game-page" class="section">
+  <h1>BlackRussia</h1>
+  <div class="left-buttons">
     <button>Аккаунты</button>
+    <button onclick="backToGames()">⬅️ Назад к списку игр</button>
   </div>
 </section>
 
