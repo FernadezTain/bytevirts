@@ -64,6 +64,22 @@ h1, p { text-align: center; }
     background: rgba(255,255,255,0.2);
 }
 
+/* Маленькая кнопка "Подробнее" */
+.product button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.product button:hover {
+    background: rgba(255,255,255,0.25);
+}
+
 .product {
     display: flex;
     align-items: center;
@@ -91,4 +107,6 @@ h1, p { text-align: center; }
     display: none;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: opacity 0.3s ease;
+    opacity: 0;
 }
