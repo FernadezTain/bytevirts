@@ -3,37 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ByteVirts</title>
+<title>ByteVirts - BlackRussia</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <!-- Заголовок -->
     <h1>ByteVirts</h1>
     <p>Онлайн площадка покупки игровых ценностей</p>
 
-    <!-- Список игр -->
+    <!-- Кнопка BlackRussia -->
     <div class="game-list">
         <button id="blackrussia"><span>BlackRussia</span></button>
     </div>
 
-    <!-- Меню выбора -->
+    <!-- Меню после нажатия -->
     <div id="menu" class="hidden">
         <button id="accountsBtn"><span>Аккаунты</span></button>
-        <button id="itemsBtn"><span>Игровые ценности</span></button>
-        <div id="products" class="gallery hidden"></div>
     </div>
 
-    <!-- Уведомление -->
-    <div id="notification" class="hidden">Не доступно...</div>
+    <!-- Фильтр -->
+    <div id="filterContainer" class="hidden">
+        <button id="filterBtn">Фильтр</button>
+        <div id="serverMenu" class="hidden">
+            <button id="serverBtn">Сервера</button>
+            <div id="serverList" class="hidden"></div>
+        </div>
+    </div>
+
+    <!-- Список товаров -->
+    <div id="products" class="products-grid hidden"></div>
 </div>
 
-<!-- Звук ошибки -->
-<audio id="errorSound" src="error.mp3"></audio>
-
-<!-- Скрипт -->
 <script src="script.js"></script>
-
 </body>
 </html>
