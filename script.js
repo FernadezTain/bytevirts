@@ -1,10 +1,11 @@
-function scrollToSection(id) {
-  const section = document.getElementById(id);
-  if(section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
+function showGame(gameId) {
+  document.getElementById('games').style.display = 'none';
+  document.getElementById('game-page').style.display = 'flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showGame(gameId) {
-  scrollToSection(gameId);
+function backToGames() {
+  document.getElementById('game-page').style.display = 'none';
+  document.getElementById('games').style.display = 'flex';
+  window.scrollTo({ top: document.getElementById('games').offsetTop, behavior: 'smooth' });
 }
