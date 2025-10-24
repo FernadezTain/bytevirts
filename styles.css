@@ -569,3 +569,20 @@ footer a {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
+#filterOptions {
+  max-height: 300px; /* или другой размер по высоте */
+  overflow-y: auto;  /* вертикальная прокрутка */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;          /* расстояние между кнопками */
+}
+
+#serverList {
+  max-height: 300px; /* ограничение высоты для списка серверов */
+  overflow-y: auto;  /* вертикальная прокрутка */
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
