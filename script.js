@@ -1,10 +1,10 @@
 const backgrounds = [
   // Пример фоновых данных с категориями и серверами
-  { file: "profile_def.png", name: "Стандартный фон", arg: "def", category: ["standard", "free"], servers: ["RED","GREEN","BLUE"] },
-  { file: "profile_creeper_Minecraft.png", name: "Крипер Minecraft", arg: "minecraft1", category: ["standard", "free"], servers: ["RED","YELLOW"] },
-  { file: "Danivak50_1.png", name: "Danivak50 - 1", arg: "Danivak50_1", category: ["custom", "accounts_blackrussia"], servers: ["RED","GREEN"] },
-  { file: "Danivak50_2.png", name: "Danivak50 - 2", arg: "Danivak50_2", category: ["custom", "game_cenost_blackrussia"], servers: ["BLUE","GREEN"] },
-  { file: "lizka_1.png", name: "Lizka", arg: "lizka_1", price: 17000, category: ["standard", "paid"], servers: ["RED","BLUE","GREEN"] },
+  { file: "br_account1.png", name: "Стандартный фон", arg: "def", category: ["standard", "free"], servers: ["RED","GREEN","BLUE"] },
+  { file: "br_account1.png", name: "Крипер Minecraft", arg: "minecraft1", category: ["standard", "free"], servers: ["RED","YELLOW"] },
+  { file: "br_account1.png", name: "Danivak50 - 1", arg: "Danivak50_1", category: ["custom", "accounts_blackrussia"], servers: ["RED","GREEN"] },
+  { file: "br_account1.png", name: "Danivak50 - 2", arg: "Danivak50_2", category: ["custom", "game_cenost_blackrussia"], servers: ["KRASNODAR"] },
+  { file: "br_account1.png", name: "Lizka", arg: "lizka_1", price: 17000, category: ["standard", "paid"], servers: ["RED","BLUE","GREEN"] },
 ];
 
 const openBtn = document.getElementById("openBtn");
