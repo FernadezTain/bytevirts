@@ -1,16 +1,47 @@
-function showGame(gameId) {
-  // Скрываем главный экран и список игр
-  document.getElementById('home').style.display = 'none';
-  document.getElementById('games').style.display = 'none';
-  // Показываем страницу игры
-  document.getElementById('game-page').style.display = 'flex';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+const menu = document.getElementById('menu');
+const blackrussia = document.getElementById('blackrussia');
+const accountsBtn = document.getElementById('accountsBtn');
+const itemsBtn = document.getElementById('itemsBtn');
+const notification = document.getElementById('notification');
+const errorSound = document.getElementById('errorSound');
+const products = document.getElementById('products');
 
-function backToGames() {
-  // Показываем главный экран и список игр снова
-  document.getElementById('home').style.display = 'flex';
-  document.getElementById('games').style.display = 'flex';
-  document.getElementById('game-page').style.display = 'none';
-  window.scrollTo({ top: document.getElementById('games').offsetTop, behavior: 'smooth' });
-}
+const productList = [
+    {name: 'Аккаунт 1', desc: 'Краткое описание 1', img: 'https://via.placeholder.com/60'},
+    {name: 'Аккаунт 2', desc: 'Краткое описание 2', img: 'https://via.placeholder.com/60'},
+    {name: 'Аккаунт 3', desc: 'Краткое описание 3', img: 'https://via.placeholder.com/60'}
+];
+
+// Открытие меню при клике на игру
+blackrussia.addEventListener('click', () => {
+    menu.style.display = 'block';
+    menu.classList.remove('expanded');
+    products.style.display = 'none';
+});
+
+// Игровые ценности → уведомление с ошибкой
+itemsBtn.addEventListener('click', () => {
+    notification.style.display = 'block';
+    errorSound.play();
+    setTimeout(() => { notification.style.display = 'none'; }, 3000);
+});
+
+// Аккаунты → увеличенное меню со списком товаров
+accountsBtn.addEventListener('click', () => {
+    menu.classList.add('expanded');
+    products.style.display = 'block';
+    products.innerHTML = '';
+    productList.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `
+            <img src="${p.img}" alt="">
+            <div>
+                <strong>${p.name}</strong>
+                <p>${p.desc}</p>
+            </div>
+            <button>Подробнее</button>
+        `;
+        products.appendChild(div);
+    });
+});
