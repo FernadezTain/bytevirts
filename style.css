@@ -1,3 +1,61 @@
+/* Общий фон и стили */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(270deg, #74b9ff, #a29bfe, #00cec9, #fab1a0);
+    background-size: 600% 600%;
+    animation: gradientBG 12s ease infinite;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Заголовки */
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+p {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Кнопки игр и меню */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    backdrop-filter: blur(12px) saturate(180%);
+    position: relative;
+    overflow: hidden;
+}
+
+button span {
+    position: relative;
+    z-index: 1;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,168,255,0.6);
+}
+
 /* Меню выбора */
 #menu {
     display: flex;
@@ -10,7 +68,6 @@
 #menu button {
     width: 60%;
     padding: 12px 20px;
-    font-size: 16px;
 }
 
 /* Список товаров */
@@ -78,4 +135,9 @@
 
 #notification.show {
     opacity: 1;
+}
+
+/* Скрытые элементы */
+.hidden {
+    display: none;
 }
