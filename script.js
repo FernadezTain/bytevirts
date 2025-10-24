@@ -4,3 +4,7 @@ function scrollToSection(id) {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+function showGame(gameId) {
+  scrollToSection(gameId);
+}
