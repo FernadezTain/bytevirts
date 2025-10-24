@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- === Первый экран === -->
+<!-- === Главный экран === -->
 <section id="home" class="section full-screen">
   <div class="glass center">
     <h1>ByteVirts</h1>
@@ -19,18 +19,22 @@
 
 <!-- === Секция игр === -->
 <section id="games" class="section dark-section">
-  <h2>Список игр</h2>
+  <h2 class="games-title">Список игр</h2>
   <div class="games-list">
     <button class="game-btn" onclick="showGame('blackrussia')">BlackRussia</button>
+    <!-- Можно добавить другие игры -->
   </div>
 </section>
 
 <!-- === Страница игры === -->
 <section id="game-page" class="section">
-  <h1>BlackRussia</h1>
-  <div class="left-buttons">
-    <button>Аккаунты</button>
-    <button onclick="backToGames()">⬅️ Назад к списку игр</button>
+  <div class="game-content">
+    <h1>BlackRussia</h1>
+    <div class="left-buttons">
+      <button onclick="backToGames()">⬅️ Назад к списку игр</button>
+      <button>Аккаунты</button>
+      <button>Игровые ценности</button>
+    </div>
   </div>
 </section>
 
