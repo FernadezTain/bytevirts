@@ -577,49 +577,47 @@ footer a {
   gap: 5px;          /* расстояние между кнопками */
 }
 
-/* Скрываем серверный список по умолчанию */
 #serverList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: block;
   margin-top: 6px;
-  max-height: 0;
+  max-height: 60vh;         /* максимум 60% высоты экрана */
+  overflow-y: auto;         /* скролл при необходимости */
   opacity: 0;
-  overflow: hidden;
   transition: all 0.4s ease;
 }
 
-/* При раскрытии */
 #serverList.show {
-  max-height: 400px; /* или другой комфортный размер */
   opacity: 1;
-  overflow-y: auto; /* только при открытии появляется скролл */
-  scrollbar-width: thin;        /* Firefox */
-  scrollbar-color: rgba(255,255,255,0.4) rgba(255,255,255,0.1); /* Firefox */
+  max-height: 60vh;         /* оставляем такое же, как у блока по умолчанию */
+  overflow-y: auto;
+  scrollbar-width: thin;        
+  scrollbar-color: rgba(255,255,255,0.4) rgba(255,255,255,0.1);
 }
 
 /* Кастомный скролл для Chrome/Edge/Safari */
-#serverList.show::-webkit-scrollbar {
+#serverList::-webkit-scrollbar {
   width: 8px;
 }
 
-#serverList.show::-webkit-scrollbar-track {
+#serverList::-webkit-scrollbar-track {
   background: rgba(255,255,255,0.1);
   border-radius: 4px;
 }
 
-#serverList.show::-webkit-scrollbar-thumb {
+#serverList::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.4);
   border-radius: 4px;
   transition: background 0.3s;
 }
 
-#serverList.show::-webkit-scrollbar-thumb:hover {
+#serverList::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.6);
 }
 
 /* Кнопки серверов */
 .server-option {
+  display: block;
+  margin-bottom: 6px; /* вместо flex gap */
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 8px;
@@ -630,6 +628,10 @@ footer a {
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   transition: transform 0.2s, box-shadow 0.3s;
   font-size: 13px;
+}
+
+.server-option:last-child {
+  margin-bottom: 0;
 }
 
 .server-option:hover {
