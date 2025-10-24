@@ -577,42 +577,63 @@ footer a {
   gap: 5px;          /* расстояние между кнопками */
 }
 
-/* Скрываем скролл по умолчанию */
+/* Скрываем серверный список по умолчанию */
 #serverList {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  
-  /* Скрыть скролл, пока список скрыт */
-  scrollbar-width: thin;        /* для Firefox */
-  scrollbar-color: transparent transparent; /* Firefox */
+  gap: 6px;
+  margin-top: 6px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
-/* Кастомный скролл для вебкитов */
+/* При раскрытии */
+#serverList.show {
+  max-height: 400px; /* или другой комфортный размер */
+  opacity: 1;
+  overflow-y: auto; /* только при открытии появляется скролл */
+  scrollbar-width: thin;        /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.4) rgba(255,255,255,0.1); /* Firefox */
+}
+
+/* Кастомный скролл для Chrome/Edge/Safari */
 #serverList.show::-webkit-scrollbar {
   width: 8px;
 }
 
 #serverList.show::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   border-radius: 4px;
 }
 
 #serverList.show::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255,255,255,0.4);
   border-radius: 4px;
   transition: background 0.3s;
 }
 
 #serverList.show::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255,255,255,0.6);
 }
 
-/* Скрываем скролл, когда список скрыт */
-#serverList:not(.show) {
-  overflow: hidden;
+/* Кнопки серверов */
+.server-option {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  transition: transform 0.2s, box-shadow 0.3s;
+  font-size: 13px;
+}
+
+.server-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
