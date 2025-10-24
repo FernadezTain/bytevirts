@@ -13,7 +13,6 @@ const backgrounds = [
   { file: "profile_anime1.png", name: "Светлая мечта", arg: "profile_anime1", category: ["standard", "anime", "free"] },
   { file: "profile_anime2.png", name: "В обьятиях неба", arg: "profile_anime2", category: ["standard", "anime", "free"] },
   { file: "profile_wiongoffical_1.png", name: "wiongoffical - 1", arg: "wiongoffical_1", category: ["custom", "architecture", "free"] },
-
   // Платные фоны
   { file: "lizka_1.png", name: "Lizka", arg: "lizka_1", price: 17000, category: ["standard", "paid"] },
 ];
@@ -33,6 +32,9 @@ const filterContainer = document.getElementById("filterContainer");
 const filterBtn = document.getElementById("filterBtn");
 const filterOptions = document.getElementById("filterOptions");
 const searchInput = document.getElementById("searchInput");
+
+const serverBtn = document.getElementById("serverBtn");
+const serverList = document.getElementById("serverList");
 
 let selectedArg = "";
 let currentCategory = "all";
@@ -68,7 +70,6 @@ function renderGallery() {
       overlayImage.style.transform = "scale(1)";
       overlay.classList.remove("hidden");
 
-      // --- Инфо-блок ---
       if ("price" in bg && bg.price > 0) {
         overlayInfo.innerHTML = `
           <h3>${bg.name}</h3>
@@ -128,9 +129,26 @@ backBtn.addEventListener("click", () => {
 filterBtn.addEventListener("click", () => filterOptions.classList.toggle("show"));
 document.querySelectorAll(".filter-option").forEach(btn => {
   btn.addEventListener("click", () => {
-    currentCategory = btn.dataset.category;
-    filterOptions.classList.remove("show");
+    if(btn.id !== "serverBtn") { // обычные категории
+      currentCategory = btn.dataset.category;
+      filterOptions.classList.remove("show");
+      renderGallery();
+    }
+  });
+});
+
+// --- Меню серверов ---
+serverBtn.addEventListener("click", () => {
+  serverList.classList.toggle("show");
+});
+
+document.querySelectorAll(".server-option").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const server = btn.dataset.server;
+    currentCategory = server;
     renderGallery();
+    filterOptions.classList.remove("show");
+    serverList.classList.remove("show");
   });
 });
 
