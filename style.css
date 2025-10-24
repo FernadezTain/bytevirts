@@ -1,38 +1,94 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #121212;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
+    font-family: 'Segoe UI', sans-serif;
+    background: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
 }
 
+h1, p { text-align: center; }
+
 .game-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  margin: 10px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
 }
 
 .game-card:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .menu {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  padding: 30px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  backdrop-filter: blur(10px) saturate(180%);
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px) saturate(180%);
+    transition: all 0.5s ease;
+}
+
+.menu.expanded {
+    width: 80%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.menu button {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.menu button:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.product img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff4c4c;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
