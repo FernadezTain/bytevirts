@@ -1,11 +1,12 @@
 const backgrounds = [
   // Бесплатные фоны
   { 
-    file: "profile_def.png", 
-    name: "Стандартный фон", 
+    file: "krdaccount.png", 
+    name: "Krasnodar - 15₽", 
     arg: "def", 
     category: ["standard", "free"],
-    description: "Базовый фон, который подходит под любой стиль профиля."
+    description: "Базовый фон, который подходит под любой стиль профиля.", 
+    servers: ["KRASNODAR"] },
   },
   { 
     file: "profile_creeper_Minecraft.png", 
