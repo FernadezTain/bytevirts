@@ -638,4 +638,12 @@ footer a {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
+.info-block p b {
+  color: #ffd700;
+}
+
+.info-block p {
+  margin-bottom: 8px;
+  white-space: pre-wrap; /* чтобы можно было писать с переносами */
+}
 
