@@ -189,19 +189,35 @@ button:hover::before {
     box-sizing: border-box;
     z-index: 1000;
     backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 #overlay.hidden {
     display: none;
 }
 
+#overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 #overlay img {
-  max-width: 55%;          /* было 90% — теперь меньше */
-  max-height: 45%;         /* было 70% — теперь меньше */
-  border-radius: 14px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  object-fit: cover;       /* чтобы не искажалась пропорция */
+    max-width: 55%;
+    max-height: 45%;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.25);
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#overlay img.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: imgOpen 0.5s ease forwards;
 }
 
 #overlay img:hover {
@@ -219,11 +235,10 @@ button:hover::before {
     width: 100%;
 }
 
-/* Инфо-блок под картинкой */
+
 .info-block {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 16px;
     padding: 20px 24px;
@@ -232,81 +247,21 @@ button:hover::before {
     width: 90%;
     color: #fff;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    transition: opacity 0.4s ease, transform 0.4s ease;
     opacity: 0;
-    transform: translateY(10px);
-}
-/* === Анимация открытия инфоблока с картинкой === */
-@keyframes infoOpen {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* === Анимация закрытия инфоблока с картинкой === */
-@keyframes infoClose {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-}
-
-/* === Картинка в оверлее с отдельной анимацией появления === */
-@keyframes imgOpen {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes imgClose {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px) scale(0.95);
-    }
-}
-
-/* === Применяем анимацию открытия === */
 .info-block.show {
     opacity: 1;
     transform: translateY(0) scale(1);
     animation: infoOpen 0.4s ease forwards;
 }
 
-#overlay img.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    animation: imgOpen 0.5s ease forwards;
-}
-
-/* === Применяем анимацию закрытия === */
 .info-block.hide {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     animation: infoClose 0.3s ease forwards;
-}
-
-#overlay img.hide {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-    animation: imgClose 0.3s ease forwards;
 }
 
 .info-block h3 {
@@ -778,54 +733,3 @@ footer a {
     }
 }
 
-
-/* === Плавное открытие/закрытие оверлея и инфоблока === */
-#overlay {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-#overlay.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#overlay img {
-    max-width: 55%;
-    max-height: 45%;
-    border-radius: 14px;
-    box-shadow: 0 0 25px rgba(255,255,255,0.25);
-    object-fit: cover;
-    transform: scale(0.95);
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-#overlay img.show {
-    transform: scale(1);
-    opacity: 1;
-}
-
-.info-block {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.info-block.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* === Наведение на картинку в оверлее === */
-#overlay img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px rgba(255,255,255,0.4);
-}
-
-/* === Плавная анимация появления инфоблока при наведении === */
-.info-block:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 35px rgba(255,255,255,0.3);
-}
