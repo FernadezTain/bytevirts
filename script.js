@@ -3,7 +3,7 @@ const backgrounds = [
   { 
     file: "krdaccount.png", 
     name: "Krasnodar - 15₽", 
-    arg: "def", 
+    arg: "krd1", 
     category: ["standard", "free"],
 description: `
 🌸 <b>Игровой аккаунт BlackRussia</b>
@@ -217,6 +217,6 @@ closeBtn.addEventListener("click", () => {
 // --- Установка фона ---
 setBtn.addEventListener("click", () => {
   if (selectedArg) {
-    window.location.href = `https://t.me/FernieUIBot?start=CustF${selectedArg}`;
+    window.location.href = `https://t.me/ByteVirts_bot?start=product${selectedArg}`;
   }
 });
