@@ -2,9 +2,9 @@ const backgrounds = [
   // Бесплатные фоны
   { 
     file: "krdaccount.png", 
-    name: "Krasnodar - 15₽", 
+    name: "Krasnodar #32 - 15₽", 
     arg: "krd1", 
-    category: ["standard", "free"],
+    category: ["accounts_blackrussia"],
 description: `
 🌸 <b>Игровой аккаунт BlackRussia</b>
 ✨ <b>Сервер:</b> BlackRussia Krasnodar #32
@@ -14,16 +14,23 @@ description: `
 🎯 <b>Уровень:</b> 3
 🔒 <b>Привязки:</b> Отсутствуют
 ⏰ <b>Время на проверку после покупки:</b> 12ч
-`
-, 
-    servers: ["KRASNODAR"]
+`, servers: ["KRASNODAR"]
   },
   { 
-    file: "profile_creeper_Minecraft.png", 
-    name: "Крипер Minecraft", 
-    arg: "minecraft1", 
-    category: ["standard", "free"], 
-    description: "Легендарный крипер — символ Minecraft. Идеально для фанатов кубического мира."
+    file: "tveraccount.png", 
+    name: "TVER #83", 
+    arg: "tver1", 
+    category: ["accounts_blackrussia"], 
+    description: `
+🌸 <b>Игровой аккаунт BlackRussia</b>
+✨ <b>Сервер:</b> BlackRussia TVER #83
+💎 <b>Краткое описание товара:
+💰 Баланс:</b> 30.000
+<b>🏠 Общая стоимость имущества:</b>30.000
+🎯 <b>Уровень:</b> 3
+🔒 <b>Привязки:</b> Отсутствуют
+⏰ <b>Время на проверку после покупки:</b> 12ч
+`, servers: ["KRASNODAR"]
   },
 ];
 
