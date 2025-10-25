@@ -667,28 +667,35 @@ footer a {
     text-align: center;
     width: 90%;
     max-width: 1000px;
-    transition: none; /* отключаем все трансформации, чтобы дети не сжимались */
+    transition: none; /* отключаем все трансформации */
 }
 
-/* Красивый анимированный градиентный заголовок */
+/* Заголовок с плавным переливом */
 #title {
-    font-size: 60px !important; /* фиксируем размер */
+    font-size: 60px !important;
     font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    background: linear-gradient(270deg, #ff6ec7, #6c5ce7, #00cec9, #ffeaa7, #fab1a0);
-    background-size: 1000% 1000%;
+
+    /* Градиент текста: синий → голубой → фиолетовый → красный */
+    background: linear-gradient(270deg, #1e3c72, #00c6ff, #6a0dad, #ff3f3f);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientText 12s ease infinite;
+
+    /* Медленная анимация градиента */
+    animation: gradientShift 20s linear infinite;
+
     text-align: center;
     margin-bottom: 40px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    transform: none !important; /* запретить любые трансформации */
-    transition: none !important; /* отключаем переходы размера/трансформации */
+    transform: none !important;
+    transition: none !important;
 }
 
-@keyframes slowGradient {
+@keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
