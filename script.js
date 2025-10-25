@@ -5,8 +5,12 @@ const backgrounds = [
     name: "Krasnodar - 15₽", 
     arg: "def", 
     category: ["standard", "free"],
-    description: "Базовый фон, который подходит под любой стиль профиля.", 
-    servers: ["KRASNODAR"] },
+    description: `
+🌸 Нежный фон в пастельных тонах  
+✨ Подходит для спокойных профилей  
+💎 Универсальный вариант для любого оформления
+`, 
+    servers: ["KRASNODAR"]
   },
   { 
     file: "profile_creeper_Minecraft.png", 
@@ -53,6 +57,7 @@ const backgrounds = [
     description: "Премиум фон с эксклюзивным оформлением. Подчеркни свой стиль ✨"
   },
 ];
+
 
 const openBtn = document.getElementById("openBtn");
 const backBtn = document.getElementById("backBtn");
