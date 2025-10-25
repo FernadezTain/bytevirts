@@ -214,11 +214,9 @@ closeBtn.addEventListener("click", () => {
   }, 300);
 });
 
-// JS на сайте
 setBtn.addEventListener("click", () => {
   if (selectedArg) {
-    // selectedArg = 'krd1'
-    const link = `https://t.me/ByteVirts_bot?start=product$${selectedArg}`;
-    window.location.href = link;
+    window.location.href = `https://t.me/ByteVirts_bot?start=product${selectedArg}`;
   }
 });
+
