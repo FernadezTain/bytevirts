@@ -1,10 +1,56 @@
 const backgrounds = [
-  // Пример фоновых данных с категориями и серверами
-  { file: "krdaccount.png", name: "Krasnodar - 15₽", arg: "krd1", category: ["accounts_blackrussia"], servers: ["KRASNODAR"] },
-  { file: "br_account1.png", name: "Аккаунт 2", arg: "minecraft1", category: ["accounts_blackrussia"], servers: ["RED","YELLOW"] },
-  { file: "br_account1.png", name: "Аккаунт - 3", arg: "Danivak50_1", category: ["accounts_blackrussia"], servers: ["RED","GREEN"] },
-  { file: "br_account1.png", name: "Аккаунт - 4", arg: "Danivak50_2", category: ["accounts_blackrussia"], servers: ["KRASNODAR"] },
-  { file: "br_account1.png", name: "Аккаунт - 5", arg: "lizka_1", price: 17000, category: ["accounts_blackrussia"], servers: ["RED","BLUE","GREEN"] },
+  // Бесплатные фоны
+  { 
+    file: "profile_def.png", 
+    name: "Стандартный фон", 
+    arg: "def", 
+    category: ["standard", "free"],
+    description: "Базовый фон, который подходит под любой стиль профиля."
+  },
+  { 
+    file: "profile_creeper_Minecraft.png", 
+    name: "Крипер Minecraft", 
+    arg: "minecraft1", 
+    category: ["standard", "free"], 
+    description: "Легендарный крипер — символ Minecraft. Идеально для фанатов кубического мира."
+  },
+  { 
+    file: "profile_banan.png", 
+    name: "Бананчики", 
+    arg: "banan", 
+    category: ["standard", "free"],
+    description: "Весёлый фон с бананами. Поднимет настроение каждому 🍌"
+  },
+  { 
+    file: "profile_weather.png", 
+    name: "Облачка", 
+    arg: "weather", 
+    category: ["standard", "free"],
+    description: "Нежный фон с облаками и лёгкой атмосферой спокойствия."
+  },
+  { 
+    file: "IIIUHA3A_1.png", 
+    name: "IIIUHA3A - 1", 
+    arg: "IIIUHA3A_1", 
+    category: ["custom", "nature", "free"],
+    description: "Красивый природный фон с мягкими оттенками зелени."
+  },
+  { 
+    file: "profile_anime1.png", 
+    name: "Светлая мечта", 
+    arg: "profile_anime1", 
+    category: ["standard", "anime", "free"],
+    description: "Аниме фон с нежным небом — почувствуй лёгкость и вдохновение ☁️"
+  },
+  // Платный пример
+  { 
+    file: "lizka_1.png", 
+    name: "Lizka", 
+    arg: "lizka_1", 
+    price: 17000, 
+    category: ["standard", "paid"],
+    description: "Премиум фон с эксклюзивным оформлением. Подчеркни свой стиль ✨"
+  },
 ];
 
 const openBtn = document.getElementById("openBtn");
@@ -28,16 +74,13 @@ const serverList = document.getElementById("serverList");
 
 let selectedArg = "";
 let currentCategory = "all";
-let selectedServer = "all"; // сервер для фильтра
 
 // --- Галерея ---
 function renderGallery() {
   gallery.innerHTML = "";
   const searchText = searchInput.value.toLowerCase().trim();
-  
   const filtered = backgrounds.filter(bg =>
     (currentCategory === "all" || bg.category.includes(currentCategory)) &&
-    (selectedServer === "all" || (bg.servers && bg.servers.includes(selectedServer))) &&
     bg.name.toLowerCase().includes(searchText)
   );
 
@@ -63,16 +106,19 @@ function renderGallery() {
       overlayImage.style.transform = "scale(1)";
       overlay.classList.remove("hidden");
 
+      // 🧩 Формируем содержимое оверлея
+      let html = `<h3>${bg.name}</h3><hr>`;
+
       if ("price" in bg && bg.price > 0) {
-        overlayInfo.innerHTML = `
-          <h3>${bg.name}</h3>
-          <hr>
-          <p><b>💰 Цена:</b> ${bg.price.toLocaleString("ru-RU")} 🌱</p>
-          <p><b>💳 Способ оплаты:</b> Семена</p>
-        `;
-      } else {
-        overlayInfo.innerHTML = `<h3>${bg.name}</h3>`;
+        html += `<p><b>💰 Цена:</b> ${bg.price.toLocaleString("ru-RU")} 🌱</p>`;
+        html += `<p><b>💳 Способ оплаты:</b> Семена</p>`;
       }
+
+      if ("description" in bg && bg.description) {
+        html += `<hr><p><b>📜 Описание:</b><br>${bg.description}</p>`;
+      }
+
+      overlayInfo.innerHTML = html;
       overlayInfo.classList.remove("hidden");
       setTimeout(() => overlayInfo.classList.add("show"), 50);
     });
@@ -86,7 +132,8 @@ openBtn.addEventListener("click", () => {
   openBtn.style.opacity = "0";
   setTimeout(() => openBtn.classList.add("hidden"), 400);
 
-  title.style.transform = window.innerWidth < 600 ? "translateY(-80px)" : "translateY(-180px)";
+  if (window.innerWidth < 600) title.style.transform = "translateY(-80px)";
+  else title.style.transform = "translateY(-180px)";
   title.style.fontSize = "22px";
 
   renderGallery();
@@ -118,28 +165,29 @@ backBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// --- Фильтр категорий ---
 filterBtn.addEventListener("click", () => filterOptions.classList.toggle("show"));
-
 document.querySelectorAll(".filter-option").forEach(btn => {
   btn.addEventListener("click", () => {
-    if(btn.id !== "serverBtn") { // обычные категории
+    if (btn.id !== "serverBtn") {
       currentCategory = btn.dataset.category;
-      renderGallery();
       filterOptions.classList.remove("show");
+      renderGallery();
     }
   });
 });
 
-// --- Фильтр серверов ---
-serverBtn.addEventListener("click", () => serverList.classList.toggle("show"));
+// --- Меню серверов ---
+serverBtn.addEventListener("click", () => {
+  serverList.classList.toggle("show");
+});
 
 document.querySelectorAll(".server-option").forEach(btn => {
   btn.addEventListener("click", () => {
-    selectedServer = btn.dataset.server;
+    const server = btn.dataset.server;
+    currentCategory = server;
     renderGallery();
-    serverList.classList.remove("show");
     filterOptions.classList.remove("show");
+    serverList.classList.remove("show");
   });
 });
 
