@@ -81,10 +81,11 @@ let currentCategory = "all";
 function renderGallery() {
   gallery.innerHTML = "";
   const searchText = searchInput.value.toLowerCase().trim();
-  const filtered = backgrounds.filter(bg =>
-    (currentCategory === "all" || bg.category.includes(currentCategory)) &&
+const filtered = backgrounds.filter(bg =>
+    (currentCategory === "all" || bg.category.includes(currentCategory) || (bg.servers && bg.servers.includes(currentCategory))) &&
     bg.name.toLowerCase().includes(searchText)
-  );
+);
+
 
   if (filtered.length === 0) {
     const msg = document.createElement("p");
