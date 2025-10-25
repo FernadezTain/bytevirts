@@ -5,7 +5,6 @@ const backgrounds = [
     name: "Krasnodar - 15₽", 
     arg: "def", 
     category: ["standard", "free"],
-    description: `
 description: `
 🌸 <b>Игровой аккаунт BlackRussia</b><br>
 ✨ <b>Сервер:</b> BlackRussia Krasnodar #32<br><br>
@@ -15,7 +14,8 @@ description: `
 🎯 Уровень: <b>3</b><br>
 🔒 Привязки: <b>Отсутствуют</b><br>
 ⏰ Время на проверку после покупки: <b>12ч</b>
-`, 
+`
+, 
     servers: ["KRASNODAR"]
   },
   { 
