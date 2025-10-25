@@ -662,15 +662,9 @@ footer a {
     max-height: 55%;
   }
 }
-/* Красивый анимированный градиентный заголовок */
-/* Контейнер */
-.container {
-    text-align: center;
-    width: 90%;
-    max-width: 1000px;
-}
-
-/* Новый стиль заголовка */
+.container 
+{ text-align: center; width: 90%; max-width: 1000px; transition: none;
+ 
 #title {
     font-size: 48px;              /* чуть меньше, чтобы на мобилке помещался */
     font-weight: 700;             /* чуть легче для читаемости */
