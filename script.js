@@ -189,4 +189,3 @@ setBtn.addEventListener("click", () => {
     window.location.href = `https://t.me/ByteVirts_bot?start=product${selectedArg}`;
   }
 });
-
