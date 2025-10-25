@@ -19,7 +19,7 @@ description: `
 
 { 
   file: "krdaccount.png", 
-  name: "Krasnodar #32 - 15₽", 
+  name: "Krasnodar #32 - 20₽", 
   arg: "krd2", 
   category: ["accounts_blackrussia"], 
   description: `
