@@ -214,9 +214,11 @@ closeBtn.addEventListener("click", () => {
   }, 300);
 });
 
-// --- Установка фона ---
+// JS на сайте
 setBtn.addEventListener("click", () => {
   if (selectedArg) {
-    window.location.href = `https://t.me/ByteVirts_bot?start=product${selectedArg}`;
+    // selectedArg = 'krd1'
+    const link = `https://t.me/ByteVirts_bot?start=product$${selectedArg}`;
+    window.location.href = link;
   }
 });
