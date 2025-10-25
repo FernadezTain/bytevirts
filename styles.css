@@ -663,32 +663,31 @@ footer a {
   }
 }
 /* Красивый анимированный градиентный заголовок */
+/* Контейнер */
 .container {
     text-align: center;
     width: 90%;
     max-width: 1000px;
-    transition: none; /* отключаем все трансформации, чтобы дети не сжимались */
 }
 
-/* Красивый анимированный градиентный заголовок */
+/* Новый стиль заголовка */
 #title {
-    font-size: 60px !important; /* фиксируем размер */
-    font-weight: 900;
-    text-transform: uppercase;
-    background: linear-gradient(270deg, #ff6ec7, #6c5ce7, #00cec9, #ffeaa7, #fab1a0);
-    background-size: 1000% 1000%;
+    font-size: 48px;              /* чуть меньше, чтобы на мобилке помещался */
+    font-weight: 700;             /* чуть легче для читаемости */
+    font-family: 'Poppins', sans-serif; /* современный, мягкий шрифт */
+    text-transform: none;         /* без всех капслоков */
+    background: linear-gradient(90deg, #6a11cb, #2575fc); /* мягкий синий градиент */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientText 12s ease infinite;
     text-align: center;
-    margin-bottom: 40px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    transform: none !important; /* запретить любые трансформации */
-    transition: none !important; /* отключаем переходы размера/трансформации */
+    margin-bottom: 30px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* мягкая тень для читаемости */
+    animation: gradientTextSlow 10s ease infinite;
 }
 
-
-@keyframes gradientText {
+/* Плавная анимация градиента */
+@keyframes gradientTextSlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
