@@ -38,7 +38,7 @@ description: `
 },
   { 
     file: "tveraccount.png", 
-    name: "TVER #83", 
+    name: "TVER #832 - 15₽", 
     arg: "tver1", 
     category: ["accounts_blackrussia"], 
     description: `
