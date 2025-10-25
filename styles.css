@@ -237,9 +237,42 @@ button:hover::before {
     transform: translateY(10px);
 }
 
+/* === Анимация открытия инфоблока === */
+@keyframes infoOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* === Анимация закрытия инфоблока === */
+@keyframes infoClose {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* Класс для анимации открытия */
 .info-block.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    animation: infoOpen 0.4s ease forwards;
+}
+
+/* Класс для анимации закрытия */
+.info-block.hide {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: infoClose 0.3s ease forwards;
 }
 
 .info-block h3 {
