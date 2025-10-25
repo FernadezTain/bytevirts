@@ -711,36 +711,4 @@ footer a {
     }
 }
 
-/* Применяем ко всем основным блокам */
-body * {
-    opacity: 0; /* изначально скрываем */
-    animation: fadeInUp 1s ease forwards;
-}
 
-/* Добавляем задержку для последовательного появления */
-.container, #title {
-    animation-delay: 0.2s;
-}
-button {
-    animation-delay: 0.4s;
-}
-.gallery, .card {
-    animation-delay: 0.6s;
-}
-.info-block {
-    animation-delay: 0.8s;
-}
-.filter-container, #filterOptions, #searchInput, #serverList {
-    animation-delay: 1s;
-}
-.farm-block {
-    animation-delay: 1.2s;
-}
-footer {
-    animation-delay: 1.4s;
-}
-
-/* Можно индивидуально регулировать скорость */
-body * {
-    animation-duration: 0.8s;
-}
