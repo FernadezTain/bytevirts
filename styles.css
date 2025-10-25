@@ -236,12 +236,11 @@ button:hover::before {
     opacity: 0;
     transform: translateY(10px);
 }
-
-/* === Анимация открытия инфоблока === */
+/* === Анимация открытия инфоблока с картинкой === */
 @keyframes infoOpen {
     0% {
         opacity: 0;
-        transform: translateY(20px) scale(0.95);
+        transform: translateY(30px) scale(0.95);
     }
     100% {
         opacity: 1;
@@ -249,7 +248,7 @@ button:hover::before {
     }
 }
 
-/* === Анимация закрытия инфоблока === */
+/* === Анимация закрытия инфоблока с картинкой === */
 @keyframes infoClose {
     0% {
         opacity: 1;
@@ -257,22 +256,57 @@ button:hover::before {
     }
     100% {
         opacity: 0;
-        transform: translateY(20px) scale(0.95);
+        transform: translateY(30px) scale(0.95);
     }
 }
 
-/* Класс для анимации открытия */
+/* === Картинка в оверлее с отдельной анимацией появления === */
+@keyframes imgOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes imgClose {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+}
+
+/* === Применяем анимацию открытия === */
 .info-block.show {
     opacity: 1;
     transform: translateY(0) scale(1);
     animation: infoOpen 0.4s ease forwards;
 }
 
-/* Класс для анимации закрытия */
+#overlay img.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: imgOpen 0.5s ease forwards;
+}
+
+/* === Применяем анимацию закрытия === */
 .info-block.hide {
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(30px) scale(0.95);
     animation: infoClose 0.3s ease forwards;
+}
+
+#overlay img.hide {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    animation: imgClose 0.3s ease forwards;
 }
 
 .info-block h3 {
