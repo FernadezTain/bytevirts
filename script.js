@@ -2,7 +2,7 @@ const backgrounds = [
   // Бесплатные фоны
   { 
     file: "krdaccount.png", 
-    name: "Krasnodar #32 - 15₽", 
+    name: "lvl: 3 | Krasnodar #32 - 15₽", 
     arg: "krd1", 
     category: ["accounts_blackrussia"],
 description: `
@@ -19,7 +19,7 @@ description: `
 
 { 
   file: "krdaccount.png", 
-  name: "Krasnodar #32 - 20₽", 
+  name: "lvl: 3 | Krasnodar #32 - 20₽", 
   arg: "krd2", 
   category: ["accounts_blackrussia"], 
   description: `
@@ -38,7 +38,7 @@ description: `
 },
   { 
     file: "tveraccount.png", 
-    name: "TVER #832 - 15₽", 
+    name: "lvl: 3 | TVER #832 - 15₽", 
     arg: "tver1", 
     category: ["accounts_blackrussia"], 
     description: `
