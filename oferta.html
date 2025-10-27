@@ -20,10 +20,13 @@ body {
   align-items:center;
   min-height:100vh;
   padding:20px;
-  background: url('web_fon.png') center/cover no-repeat;
+  /* Уменьшаем фон: 50% ширины и высоты, центрируем */
+  background: url('web_fon.png') center center no-repeat;
+  background-size: 50% auto; /* 50% ширины, высота пропорционально */
   color:#e0e0e0;
   line-height:1.8;
 }
+
 
 .container {
   width:90%;
