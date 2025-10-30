@@ -1,7 +1,7 @@
 const backgrounds = [
   { 
     file: "chelaccount.png", 
-    name: "🌆 lvl: 6 | Chelyabinsk #46 — 100₽ 💸", 
+    name: "🌆 lvl: 6 | Chelyabinsk #46 — 65₽ 💸", 
     arg: "chel1", 
     category: ["accounts_blackrussia"],
     description: `
