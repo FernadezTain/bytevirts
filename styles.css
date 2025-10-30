@@ -159,88 +159,110 @@ button:hover::before {
   opacity:1;
   transform:translateY(0);
 }
-/* Оверлей */ #overlay {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
-  background:rgba(0,0,0,0.7);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  padding:20px;
-  box-sizing:border-box;
-  z-index:1000;
-  backdrop-filter:blur(8px);
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 #overlay.hidden {
-  display:none;
+  display: none;
 }
+
+/* --- Меньше картинка товара --- */
 #overlay img {
-  max-width:55%;
-  /* было 90% — теперь меньше */ max-height:45%;
-  /* было 70% — теперь меньше */ border-radius:14px;
-  box-shadow:0 0 25px rgba(255,255,255,0.25);
-  transition:transform 0.3s ease,box-shadow 0.3s ease;
-  object-fit:cover;
-  /* чтобы не искажалась пропорция */
+  max-width: 35%;  /* 👈 было 55% */
+  max-height: 30%; /* 👈 было 45% */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease;
+  object-fit: cover;
 }
+
+#overlay img:hover {
+  transform: scale(1.04);
+}
+
 #overlay img:hover {
   transform:scale(1.05);
   box-shadow:0 0 35px rgba(255,255,255,0.4);
 }
 #overlayButtons {
-  display:flex;
-  flex-direction:row;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
-/* Инфо-блок под картинкой */ .info-block {
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(18px) saturate(180%);
-  -webkit-backdrop-filter:blur(18px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.35);
-  border-radius:16px;
-  padding:20px 24px;
-  text-align:left;
-  max-width:400px;
-  width:90%;
-  color:#fff;
-  box-shadow:0 8px 32px rgba(31,38,135,0.37);
-  transition:opacity 0.4s ease,transform 0.4s ease;
-  opacity:0;
-  transform:translateY(10px);
+/* --- Компактное инфо-окно --- */
+.info-block {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 15px 18px;
+  text-align: left;
+  max-width: 320px;  /* 👈 было 400px */
+  width: 85%;
+  color: #fff;
+  box-shadow: 0 6px 25px rgba(31, 38, 135, 0.37);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .info-block.show {
-  opacity:1;
-  transform:translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
+
 .info-block h3 {
-  margin:0 0 10px 0;
-  font-size:20px;
-  text-align:center;
-  font-weight:600;
-  text-shadow:0 1px 2px rgba(0,0,0,0.3);
+  margin: 0 0 8px 0;
+  font-size: 18px; /* 👈 меньше заголовок */
+  text-align: center;
 }
+
 .info-block p {
-  margin:5px 0;
-  font-size:16px;
-  line-height:1.4;
-  color:rgba(255,255,255,0.92);
+  margin: 4px 0;
+  font-size: 14px; /* 👈 компактный текст */
+  line-height: 1.35;
 }
 .info-block hr {
-  border:none;
-  border-top:1px solid rgba(255,255,255,0.25);
-  margin:10px 0;
+  margin: 8px 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .info-block:hover {
   box-shadow:0 10px 40px rgba(255,255,255,0.3);
   transform:scale(1.02);
+}
+/* 📱 Мобильная адаптация */
+@media (max-width: 600px) {
+  #overlay img {
+    max-width: 75%;
+    max-height: 35%;
+  }
+
+  .info-block {
+    max-width: 90%;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  .info-block h3 {
+    font-size: 16px;
+  }
 }
 /* Фильтры */ .filter-container {
   margin:15px auto 20px;
