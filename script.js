@@ -1,41 +1,5 @@
 const backgrounds = [
   // Бесплатные фоны
-  { 
-    file: "krdaccount.png", 
-    name: "lvl: 3 | Krasnodar #32 - 15₽", 
-    arg: "krd1", 
-    category: ["accounts_blackrussia"],
-description: `
-🌸 <b>Игровой аккаунт BlackRussia</b>
-✨ <b>Сервер:</b> BlackRussia Krasnodar #32
-💎 <b>Краткое описание товара:
-💰 Баланс:</b> 30.000
-<b>🏠 Общая стоимость имущества:</b>30.000
-🎯 <b>Уровень:</b> 3
-🔒 <b>Привязки:</b> Отсутствуют
-⏰ <b>Время на проверку после покупки:</b> 12ч
-`, servers: ["KRASNODAR"]
-  },
-
-{ 
-  file: "krdaccount.png", 
-  name: "lvl: 3 | Krasnodar #32 - 20₽", 
-  arg: "krd2", 
-  category: ["accounts_blackrussia"], 
-  description: `
-🌸 <b>Игровой аккаунт BlackRussia</b>
-✨ <b>Сервер:</b> BlackRussia Krasnodar #32
-💎 <b>Краткое описание товара:</b>
-💰 <b>Баланс:</b> 12.900
-💠 <b>Donate:</b> 30 BC
-🎯 <b>Уровень:</b> 3
-🎫 <b>Уровень BlackPass:</b> 2
-⛏️ <b>Добыча:</b> VIP GOLD «3 шт по 4–8ч», 1 временный скин
-🔒 <b>Привязки:</b> Отсутствуют
-⏰ <b>Время на проверку после покупки:</b> 12ч
-`,
-  servers: ["KRASNODAR"]
-}
 ];
 
 
