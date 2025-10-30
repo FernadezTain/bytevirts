@@ -1,4 +1,26 @@
 const backgrounds = [
+  { 
+    file: "chelaccount.png", 
+    name: "lvl: 6 | Chelyabinsk #46 - 100₽", 
+    arg: "chel1", 
+    category: ["accounts_blackrussia"],
+description: 
+🌸 <b>Игровой аккаунт BlackRussia</b>
+✨ <b>Сервер:</b> BlackRussia Chelyabinsk #46
+💎 <b>Краткое описание товара:
+💰 Баланс:</b> 207.763₽
+BlackCoins: 12
+<b>🏠 Общая стоимость имущества:</b>~ 210.000
+<b> Аксессуары:</b> «Зимний Шарф», «Маска Лик Смерти»
+<b>Скины:</b> «Мишаня Хулиган»
+<b>Добыча:</b> 
+VIP Статус (6шт.)
+<b>BlackPass:</b> 6 lvl
+🎯 <b>Уровень:</b> 6
+🔒 <b>Привязки:</b> Отсутствуют
+⏰ <b>Время на проверку после покупки:</b> 12ч
+, servers: ["CHELYABINSK"]
+  },
 ];
 
 
