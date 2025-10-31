@@ -645,3 +645,55 @@ footer a {
   transform:translateY(0);
 }
 }
+/* === Для позиционирования картинки и галочки === */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* === Галочка (Twitter-style на CSS) === */
+.verified-icon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  background: #1d9bf0; /* Синий круг */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(29, 155, 240, 0.5);
+  z-index: 5;
+  animation: verifyPop 0.35s ease;
+}
+
+/* Белая галочка внутри */
+.verified-icon::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 11px;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(45deg);
+}
+
+/* Анимация появления */
+@keyframes verifyPop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
