@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Политика Конфиденциальности | ByteVirts</title>
+
+<!-- Подключаем tsparticles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 <style>
 :root {
   --accent: #00fff7;
@@ -21,12 +25,25 @@ body {
   min-height:100vh;
   padding:20px;
   background: url('web_fon_vert.png') center center no-repeat;
-  background-size: 100% auto; /* уменьшенное фото */
+  background-size: cover;
   color:#e0e0e0;
   line-height:1.8;
+  position: relative;
+  overflow: auto;
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* на заднем плане */
 }
 
 .container {
+  position: relative;
+  z-index: 1; /* поверх частиц */
   width:90%;
   max-width:900px;
   margin:40px auto;
@@ -37,9 +54,11 @@ body {
   -webkit-backdrop-filter: blur(15px) saturate(180%);
   border:1px solid rgba(255,255,255,0.2);
   box-shadow:0 8px 30px rgba(0,0,0,0.25);
-  position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
+
+.container:hover { transform: translateY(-5px); }
 
 h1 {
   text-align:center;
@@ -81,8 +100,18 @@ footer {
   backdrop-filter: blur(15px) saturate(180%);
 }
 
-@media (max-width:650px){
-  .container { padding:20px 25px; }
+/* --- Мобильные устройства --- */
+@media (max-width:650px) {
+  body {
+    background: #000;
+    overflow: auto;
+    display: block;
+  }
+
+  .container {
+    padding:15px 20px;
+  }
+
   h1 { font-size:1.6rem; }
   h2 { font-size:1.2rem; }
   p, li { font-size:0.95rem; }
@@ -90,13 +119,16 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- Контейнер для частиц -->
+<div id="tsparticles"></div>
+
 <div class="container">
   <h1>🔒 Политика Конфиденциальности ByteVirts</h1>
 
   <p>Настоящая Политика Конфиденциальности регулирует сбор, использование и защиту персональной информации пользователей, приобретающих игровые ценности в игре <strong>BLACK RUSSIA</strong> (далее – «Услуги») через платформу ByteVirts.</p>
 
   <h2>1. Сбор информации</h2>
-  <p>Мы можем собирать следующие данные:</p>
   <ul>
     <li>Контактные данные (имя пользователя в Telegram, email при предоставлении).</li>
     <li>Информация об оплате (тип платежной системы, ID транзакции). Данные используются только для подтверждения и обработки платежей. Банковские карты не сохраняются.</li>
@@ -121,10 +153,8 @@ footer {
   </ul>
 
   <h2>4. Передача информации третьим лицам</h2>
-  <p>Персональная информация не передается третьим лицам, кроме случаев, предусмотренных законодательством РФ, включая:</p>
   <ul>
-    <li>Уголовный кодекс РФ (ст. 159 – мошенничество, ст. 272 – несанкционированный доступ, ст. 273 – вред компьютерной информации).</li>
-    <li>Федеральный закон №149-ФЗ «Об информации, информационных технологиях и защите информации».</li>
+    <li>Персональная информация не передается третьим лицам, кроме случаев, предусмотренных законодательством РФ.</li>
   </ul>
 
   <h2>5. Согласие с Политикой</h2>
@@ -134,5 +164,26 @@ footer {
 <footer>
   &copy; 2025 ByteVirts. Все права защищены.
 </footer>
+
+<script>
+tsParticles.load("tsparticles", {
+  fpsLimit: 60,
+  particles: {
+    number: { value: 60, density: { enable: true, area: 800 } },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.6, random: false },
+    size: { value: 3, random: true },
+    links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 1.5, direction: "none", random: false, straight: false, outModes: { default: "out" } }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+    modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+  },
+  detectRetina: true
+});
+</script>
+
 </body>
 </html>
