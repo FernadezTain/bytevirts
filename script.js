@@ -4,6 +4,7 @@ const backgrounds = [
     name: "🌆 lvl: 6 | Chelyabinsk #46 — 65₽ 💸", 
     arg: "chel1", 
     category: ["accounts_blackrussia"],
+    verification: true, // ✅ Проверено
     description: `
 🌸 <b>Игровой аккаунт BlackRussia</b>
 ✨ <b>Сервер:</b> BlackRussia Chelyabinsk #46  
@@ -15,7 +16,7 @@ const backgrounds = [
 🎒 <b>Аксессуары и скины:</b> «Зимний Шарф», «Маска Лик Смерти», «Мишаня Хулиган»  
 ⚒️ <b>Добыча:</b> VIP Статус (6 шт.), BlackPass: 6 lvl  
 🔒 <b>Привязки:</b> Telegram 
-(данные к аккануту утеряны - привязка не действительна)  
+(данные к аккаунту утеряны — привязка не действительна)  
 ⏰ <b>Время на проверку:</b> 12 часов  
     `,
     servers: ["CHELYABINSK"]
@@ -50,11 +51,11 @@ let currentCategory = "all";
 function renderGallery() {
   gallery.innerHTML = "";
   const searchText = searchInput.value.toLowerCase().trim();
-const filtered = backgrounds.filter(bg =>
+
+  const filtered = backgrounds.filter(bg =>
     (currentCategory === "all" || bg.category.includes(currentCategory) || (bg.servers && bg.servers.includes(currentCategory))) &&
     bg.name.toLowerCase().includes(searchText)
-);
-
+  );
 
   if (filtered.length === 0) {
     const msg = document.createElement("p");
@@ -68,10 +69,24 @@ const filtered = backgrounds.filter(bg =>
   filtered.forEach(bg => {
     const card = document.createElement("div");
     card.className = "card fade";
-    card.innerHTML = `<img src="${bg.file}" alt="${bg.name}" data-arg="${bg.arg}"><p>${bg.name}</p>`;
+    card.innerHTML = `
+      <div class="image-wrapper">
+        <img src="${bg.file}" alt="${bg.name}" data-arg="${bg.arg}">
+      </div>
+      <p>${bg.name}</p>
+    `;
+
     gallery.appendChild(card);
     setTimeout(() => card.classList.add("show"), 50);
 
+    // ✅ Добавляем галочку, если товар проверен
+    if (bg.verification) {
+      const badge = document.createElement("div");
+      badge.className = "verified-icon";
+      card.querySelector(".image-wrapper").appendChild(badge);
+    }
+
+    // --- Открытие оверлея ---
     card.querySelector("img").addEventListener("click", () => {
       selectedArg = bg.arg;
       overlayImage.src = bg.file;
@@ -98,6 +113,7 @@ const filtered = backgrounds.filter(bg =>
 }
 
 searchInput.addEventListener("input", renderGallery);
+
 
 // --- Открытие кастомизации ---
 openBtn.addEventListener("click", () => {
