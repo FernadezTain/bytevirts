@@ -20,9 +20,10 @@ body {
   align-items:center;
   min-height:100vh;
   padding:20px;
-  /* Уменьшаем фон: 50% ширины и высоты, центрируем */
+
+  /* Фон для больших экранов */
   background: url('web_fon_vert.png') center center no-repeat;
-  background-size: 100% auto; /* 50% ширины, высота пропорционально */
+  background-size: cover; /* масштабируем под весь экран */
   color:#e0e0e0;
   line-height:1.8;
 }
@@ -86,6 +87,22 @@ footer {
   backdrop-filter: blur(15px) saturate(180%);
 }
 
+  /* --- Мобильные устройства --- */
+@media (max-width:650px) {
+  body {
+    background-position: top center;
+    background-size: auto 100%; /* подгоняем по высоте экрана */
+  }
+
+  .container {
+    padding:15px 20px;
+  }
+
+  h1 { font-size:1.6rem; }
+  h2 { font-size:1.2rem; }
+  p, li { font-size:0.95rem; }
+}
+  
 @media (max-width:650px){
   .container { padding:20px 25px; }
   h1 { font-size:1.6rem; }
