@@ -646,6 +646,7 @@ footer a {
 }
 }
 /* === Для позиционирования картинки и галочки === */
+/* === Обёртка для картинки === */
 .image-wrapper {
   position: relative;
   display: inline-block;
@@ -654,24 +655,40 @@ footer a {
 
 .image-wrapper img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
+  transition: transform 0.3s ease;
 }
 
-/* === Галочка (Twitter-style на CSS) === */
+.image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+/* === Glassmorphism галочка (Twitter Blue style) === */
 .verified-icon {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 26px;
-  height: 26px;
-  background: #1d9bf0; /* Синий круг */
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 6px rgba(29, 155, 240, 0.5);
+
+  /* 💠 Стеклянный эффект */
+  background: rgba(29, 155, 240, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+
+  /* 💡 Светящееся обрамление */
+  box-shadow:
+    0 0 10px rgba(29, 155, 240, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+
   z-index: 5;
+  cursor: default;
   animation: verifyPop 0.35s ease;
 }
 
@@ -679,14 +696,23 @@ footer a {
 .verified-icon::before {
   content: "";
   position: absolute;
-  width: 6px;
-  height: 11px;
-  border-right: 3px solid white;
-  border-bottom: 3px solid white;
+  width: 7px;
+  height: 13px;
+  border-right: 3px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.9);
   transform: rotate(45deg);
 }
 
-/* Анимация появления */
+/* Эффект наведения — лёгкий блеск */
+.verified-icon:hover {
+  box-shadow:
+    0 0 15px rgba(29, 155, 240, 0.7),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  transition: all 0.25s ease;
+}
+
+/* Плавное появление */
 @keyframes verifyPop {
   from {
     transform: scale(0.4);
