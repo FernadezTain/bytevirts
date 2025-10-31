@@ -723,3 +723,123 @@ footer a {
     opacity: 1;
   }
 }
+/* === Плашка "Проверено" в оверлее === */
+.verify-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(0, 200, 100, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  box-shadow:
+    0 0 12px rgba(0, 255, 120, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Галочка на плашке (чистый CSS) */
+.verify-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 255, 120, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 8px rgba(0, 255, 120, 0.5),
+    inset 0 0 5px rgba(255, 255, 255, 0.15);
+}
+
+.verify-icon::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+}
+
+/* === Подсказка на ПК === */
+.verify-tooltip {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  background: rgba(25, 25, 25, 0.6);
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  max-width: 260px;
+  text-align: center;
+}
+
+.verify-tooltip.show {
+  opacity: 1;
+  transform: translate(-50%, -120%);
+}
+
+/* === Всплывающее окно на телефоне === */
+.verify-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: popupFade 0.3s ease;
+}
+
+.verify-popup-content {
+  background: rgba(40, 200, 120, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px) saturate(160%);
+  color: white;
+  padding: 18px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow:
+    0 0 12px rgba(0, 255, 120, 0.4),
+    inset 0 0 6px rgba(255, 255, 255, 0.15);
+  animation: popupScale 0.35s ease;
+}
+
+.verify-popup-content button {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 10px;
+  padding: 6px 16px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.verify-popup-content button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes popupFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupScale {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
