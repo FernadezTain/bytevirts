@@ -104,41 +104,43 @@ function renderGallery() {
         `;
         overlayInfo.prepend(verifyBadge);
 
-        // --- ПК: тултип ---
-        const tooltip = document.createElement("div");
-        tooltip.className = "verify-tooltip";
-        tooltip.textContent = "Товар проверен администрацией сайта. Все данные достоверны.";
-        document.body.appendChild(tooltip);
+// ✅ Проверка ширины экрана
+if (window.innerWidth > 768) {
+  // --- ПК: тултип ---
+  const tooltip = document.createElement("div");
+  tooltip.className = "verify-tooltip";
+  tooltip.textContent = "Товар проверен администрацией сайта. Все данные достоверны.";
+  document.body.appendChild(tooltip);
 
-        verifyBadge.addEventListener("mouseenter", () => {
-          tooltip.classList.add("show");
-          const rect = verifyBadge.getBoundingClientRect();
-          tooltip.style.left = rect.left + rect.width / 2 + "px";
-          tooltip.style.top = rect.top - 10 + "px";
-        });
+  verifyBadge.addEventListener("mouseenter", () => {
+    tooltip.classList.add("show");
+    const rect = verifyBadge.getBoundingClientRect();
+    tooltip.style.left = rect.left + rect.width / 2 + "px";
+    tooltip.style.top = rect.top - 10 + "px";
+  });
 
-        verifyBadge.addEventListener("mouseleave", () => {
-          tooltip.classList.remove("show");
-        });
+  verifyBadge.addEventListener("mouseleave", () => {
+    tooltip.classList.remove("show");
+  });
+} else {
+  // --- Мобильное всплывающее окно ---
+  verifyBadge.addEventListener("click", () => {
+    const popup = document.createElement("div");
+    popup.className = "verify-popup";
+    popup.innerHTML = `
+      <div class="verify-popup-content">
+        <p>Товар проверен администрацией сайта.<br>Все данные достоверны.</p>
+        <button class="verify-close">Отлично!</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
 
-        // --- Мобильное всплывающее окно ---
-        verifyBadge.addEventListener("click", () => {
-          if (window.innerWidth <= 768) {
-            const popup = document.createElement("div");
-            popup.className = "verify-popup";
-            popup.innerHTML = `
-              <div class="verify-popup-content">
-                <p>Товар проверен администрацией сайта.<br>Все данные достоверны.</p>
-                <button class="verify-close">Отлично!</button>
-              </div>
-            `;
-            document.body.appendChild(popup);
+    popup.querySelector(".verify-close").addEventListener("click", () => {
+      popup.remove();
+    });
+  });
+}
 
-            popup.querySelector(".verify-close").addEventListener("click", () => {
-              popup.remove();
-            });
-          }
-        });
       }
     });
   });
