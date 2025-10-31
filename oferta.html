@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Оферта ByteVirts</title>
+
+<!-- Подключаем tsparticles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 <style>
 :root {
   --accent: #00fff7;
@@ -23,11 +27,21 @@ body {
 
   /* Фон для больших экранов */
   background: url('web_fon_vert.png') center center no-repeat;
-  background-size: cover; /* масштабируем под весь экран */
+  background-size: cover;
   color:#e0e0e0;
   line-height:1.8;
+  position: relative;
+  overflow: hidden;
 }
 
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* позади контента */
+}
 
 .container {
   width:90%;
@@ -87,11 +101,10 @@ footer {
   backdrop-filter: blur(15px) saturate(180%);
 }
 
-  /* --- Мобильные устройства --- */
+/* --- Мобильные устройства --- */
 @media (max-width:650px) {
   body {
-    background-position: top center;
-    background-size: auto 100%; /* подгоняем по высоте экрана */
+    background: none; /* убираем статичный фон */
   }
 
   .container {
@@ -102,16 +115,13 @@ footer {
   h2 { font-size:1.2rem; }
   p, li { font-size:0.95rem; }
 }
-  
-@media (max-width:650px){
-  .container { padding:20px 25px; }
-  h1 { font-size:1.6rem; }
-  h2 { font-size:1.2rem; }
-  p, li { font-size:0.95rem; }
-}
 </style>
 </head>
 <body>
+
+<!-- Контейнер для частиц -->
+<div id="tsparticles"></div>
+
 <div class="container">
   <h1>📝 Оферта ByteVirts</h1>
 
@@ -165,5 +175,26 @@ footer {
 <footer>
   &copy; 2025 ByteVirts. Все права защищены.
 </footer>
+
+<script>
+tsParticles.load("tsparticles", {
+  fpsLimit: 60,
+  particles: {
+    number: { value: 60, density: { enable: true, area: 800 } },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.6, random: false },
+    size: { value: 3, random: true },
+    links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 1.5, direction: "none", random: false, straight: false, outModes: { default: "out" } }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+    modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+  },
+  detectRetina: true
+});
+</script>
+
 </body>
 </html>
