@@ -727,19 +727,20 @@ footer a {
 .verify-banner {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  margin-bottom: 10px;
-  border-radius: 12px;
+  gap: 6px;           /* чуть меньше */
+  padding: 4px 10px;  /* меньше высота */
+  margin-bottom: 8px;
+  border-radius: 10px;
   font-weight: 500;
+  font-size: 13px;    /* компактнее */
   color: #fff;
   background: rgba(0, 200, 100, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
   box-shadow:
-    0 0 12px rgba(0, 255, 120, 0.4),
-    inset 0 0 8px rgba(255, 255, 255, 0.15);
+    0 0 10px rgba(0, 255, 120, 0.3),
+    inset 0 0 6px rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -747,26 +748,29 @@ footer a {
 /* Галочка на плашке (чистый CSS) */
 .verify-icon {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 18px;        /* меньше */
+  height: 18px;       /* меньше */
   background: rgba(0, 255, 120, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 8px rgba(0, 255, 120, 0.5),
-    inset 0 0 5px rgba(255, 255, 255, 0.15);
+    0 0 6px rgba(0, 255, 120, 0.5),
+    inset 0 0 4px rgba(255, 255, 255, 0.15);
 }
-
 .verify-icon::before {
   content: "";
-  position: absolute;
-  width: 5px;
-  height: 10px;
+  width: 4px;          /* под размер кружка */
+  height: 8px;
   border-right: 2px solid white;
   border-bottom: 2px solid white;
   transform: rotate(45deg);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg); /* точно центр */
 }
 
 /* === Подсказка на ПК === */
