@@ -1,25 +1,49 @@
 const backgrounds = [
-  {
-    file: "chelaccount.png",
-    name: "🌆 lvl: 6 | Chelyabinsk #46 — 65₽ 💸",
-    arg: "chel1",
-    category: ["accounts_blackrussia"],
-    verification: true, // ✅ Проверено
-    description: `
+{
+  file: "bytegold.png",
+  name: "lvl: 3 | Byte_Gold — 20₽",
+  arg: "byte_gold",
+  category: ["accounts_blackrussia"],
+  verification: true, // ✅ Проверено
+  description: `
 <p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
-<p>✨ <b>Сервер:</b> BlackRussia Chelyabinsk #46</p>
+<p>✨ <b>Ник:</b> Byte_Gold</p>
 <p>💎 <b>Краткое описание товара:</b></p>
-<p>🎯 <b>Уровень:</b> 6</p>
-<p>💰 <b>Баланс:</b> 207.763₽</p>
-<p>🪙 <b>BlackCoins:</b> 12</p>
-<p>🏠 <b>Общая стоимость имущества:</b> ~210.000₽</p>
-<p>🎒 <b>Аксессуары и скины:</b> «Зимний Шарф», «Маска Лик Смерти», «Мишаня Хулиган»</p>
-<p>⚒️ <b>Добыча:</b> VIP Статус (6 шт.), BlackPass: 6 lvl</p>
-<p>🔒 <b>Привязки:</b> Telegram (данные к аккаунту утеряны — привязка не действительна)</p>
+<p>🎯 <b>Уровень:</b> 3</p>
+<p>💰 <b>Баланс:</b> 133842₽</p>
+<p>🪙 <b>BlackCoins:</b> 5</p>
+<p>🏠 <b>Имущество:</b> отсутствует</p>
+<p>🎒 <b>Аксессуары и скины:</b> стандартные</p>
+<p>⚒️ <b>Добыча:</b> VIP Gold (2шт.)</p>
+<p>🔒 <b>Привязки:</b> отсутствует</p>
+<p>📅 <b>Дата регистрации:</b> 29.10.2025, 07:06 (МСК)</p>
 <p>⏰ <b>Время на проверку:</b> 12 часов</p>
-    `,
-    servers: ["CHELYABINSK"]
-  }
+  `,
+  servers: ["GOLD"]
+},
+{
+  file: "byteblue.png",
+  name: "lvl: 3 | Byte_Blue — 15₽",
+  arg: "byte_blue",
+  category: ["accounts_blackrussia"],
+  verification: true, // ✅ Проверено
+  description: `
+<p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
+<p>✨ <b>Ник:</b> Byte_Blue</p>
+<p>💎 <b>Краткое описание товара:</b></p>
+<p>🎯 <b>Уровень:</b> 3</p>
+<p>💰 <b>Баланс:</b> 42024₽</p>
+<p>🪙 <b>BlackCoins:</b> 5</p>
+<p>🏠 <b>Имущество:</b> отсутствует</p>
+<p>🎒 <b>Аксессуары и скины:</b> стандартные</p>
+<p>⚒️ <b>Добыча:</b> VIP Gold (2шт.)</p>
+<p>🔒 <b>Привязки:</b> отсутствует</p>
+<p>📅 <b>Дата регистрации:</b> 29.10.2025, 11:08 (МСК)</p>
+<p>⏰ <b>Время на проверку:</b> 12 часов</p>
+  `,
+  servers: ["BLUE"]
+}
+
 ];
 
 const openBtn = document.getElementById("openBtn");
