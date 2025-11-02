@@ -44,7 +44,7 @@ const backgrounds = [
   {
   "file": "bytegreen.png",
   "name": "lvl: 3 | Byte - Green — 20₽",
-  "arg": "byte_green",
+  "arg": "byte_fpv",
   "category": [
     "accounts_blackrussia"
   ],
