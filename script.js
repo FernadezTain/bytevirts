@@ -1,7 +1,7 @@
 const backgrounds = [
 {
   file: "bytegold.png",
-  name: "lvl: 3 | Byte_Gold — 20₽",
+  name: "lvl: 3 | Byte - Gold — 20₽",
   arg: "byte_gold",
   category: ["accounts_blackrussia"],
   verification: true, // ✅ Проверено
@@ -23,7 +23,7 @@ const backgrounds = [
 },
 {
   file: "byteblue.png",
-  name: "lvl: 3 | Byte_Blue — 15₽",
+  name: "lvl: 3 | Byte - Blue — 15₽",
   arg: "byte_blue",
   category: ["accounts_blackrussia"],
   verification: true, // ✅ Проверено
@@ -42,6 +42,29 @@ const backgrounds = [
 <p>⏰ <b>Время на проверку:</b> 12 часов</p>
   `,
   servers: ["BLUE"]
+},
+  {
+  "file": "bytegreen.png",
+  "name": "lvl: 3 | Byte - Green — 20₽",
+  "arg": "byte_green",
+  "category": [
+    "accounts_blackrussia"
+  ],
+  "verification": true,
+  "description": `
+<p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
+<p>✨ <b>Ник:</b> Byte_FPV</p>
+<p>💎 <b>Краткое описание товара:</b></p>
+<p>🎯 <b>Уровень:</b> 3</p>
+<p>💰 <b>Баланс:</b> 154.218₽</p>
+<p>🪙 <b>BlackCoins:</b> 17</p>
+<p>🎒 <b>Аксессуары и скины:</b> Маска "Лик Смерти"</p>
+<p>⚒️ <b>Добыча:</b> VIP Gold (3шт.)</p>
+<p>🔒 <b>Привязки:</b> отсутствует</p>
+<p>📅 <b>Дата регистрации:</b> 02.11.2025</p>
+<p>⏰ <b>Время на проверку:</b> 12 часов</p>
+  `,
+  "servers": ["GREEN"]
 }
 
 ];
