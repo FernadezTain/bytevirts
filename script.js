@@ -7,7 +7,6 @@ const backgrounds = [
   verification: true, // ✅ Проверено
   description: `
 <p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
-<p>✨ <b>Ник:</b> Byte_Gold</p>
 <p>💎 <b>Краткое описание товара:</b></p>
 <p>🎯 <b>Уровень:</b> 3</p>
 <p>💰 <b>Баланс:</b> 133842₽</p>
@@ -29,7 +28,6 @@ const backgrounds = [
   verification: true, // ✅ Проверено
   description: `
 <p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
-<p>✨ <b>Ник:</b> Byte_Blue</p>
 <p>💎 <b>Краткое описание товара:</b></p>
 <p>🎯 <b>Уровень:</b> 3</p>
 <p>💰 <b>Баланс:</b> 42024₽</p>
@@ -53,7 +51,6 @@ const backgrounds = [
   "verification": true,
   "description": `
 <p>🌸 <b>Игровой аккаунт BlackRussia</b></p>
-<p>✨ <b>Ник:</b> Byte_FPV</p>
 <p>💎 <b>Краткое описание товара:</b></p>
 <p>🎯 <b>Уровень:</b> 3</p>
 <p>💰 <b>Баланс:</b> 154.218₽</p>
